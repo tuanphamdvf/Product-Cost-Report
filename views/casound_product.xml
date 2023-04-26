@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="casound_muahang_inherit_view" model="ir.ui.view">
+            <field name="name">Product</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="/form/sheet/div[3]" position="inside">
+
+                    <span class="d-inline-block">
+                        <field name="is_finished"/>
+                        <label for="is_finished"/>
+                    </span>
+                    <span class="d-inline-block">
+                        <field name="is_main_material"/>
+                        <label for="is_main_material"/>
+                    </span>
+                </xpath>
+                <!--                <xpath expr="/form/sheet/group[1]" position="after">
+                    <field class="bg-danger" name="state_giamuahang" />
+
+                </xpath>-->
+            </field>
+        </record>
+    </data>
+
+</odoo>

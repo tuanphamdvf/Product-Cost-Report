@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TTN SOFTWARE</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        #tab-content-1,
+        #tab-content-2,
+        #tab-content-3,
+        #tab-content-4 {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        ;
+
+        .tab-content:not(:first-child) {
+            display: none;
+        }
+
+
+    </style>
+</head>
+
+<body>
+
+<div class="container col">
+    <div id="tab-1" class="tab-content">
+
+        <h2 class="oe_slogan" style="color:#875A7B">Issue encountered:</h2>
+        <h3 class="oe_slogan"> When producing a product, in addition to the cost of raw materials, there are various
+            additional costs that need to be taken into account, such as electricity costs, labor costs, rent costs,
+            etc. However, when calculating the cost price in Odoo, these detailed costs are not included in the report,
+            so you will not know how much the main and auxiliary raw material costs are. Moreover, the allocation costs
+            are usually paid on a monthly basis, so the cost price being calculated based on the average cost will NOT
+            BE ABLE TO TRACK THE FLUCTUATIONS of the COST PRICE.</h3>
+
+
+        <h2 class="oe_slogan" style="color:#875A7B">Solution:</h2>
+        <h3 class="oe_slogan"> We will reorganize the allocation costs on a monthly basis, then calculate how much these
+            costs should be allocated to the cost price, so that you can track the different costs of each product.
+            Moreover, you can track the cost price on a monthly basis to make the best business plan </h3>
+        <h2 class="oe_slogan" style="color:#875A7B">How to use ? Very simple</h2>
+        <h3 class="oe_slogan"> You need to set up so that we know which product is the finished product with the
+            Finished goods field in the product as number 1. If you also want to inform us about your main raw
+            materials, you should tick the Main material field as shown in picture number 2 </h3>
+
+        <img width="1200"
+             src="https://res.cloudinary.com/djh7lsffd/image/upload/v1682526465/Product%20cost%20report/b5njc12whem4sgrqpilh.png"/>
+        <h3>After that, you can go to Manufacturing => Reports => Product Cost Report</h3>
+        <img width="1200"
+             src="https://res.cloudinary.com/djh7lsffd/image/upload/v1682526370/Product%20cost%20report/qsvqhh76qbmjctko9ai8.png"/>
+        <h3> chose time and report </h3>
+        <img width="1200"
+             src="https://res.cloudinary.com/djh7lsffd/image/upload/v1682526370/Product%20cost%20report/xdcqgqyqfq4bj2bh0drh.png"/>
+        <h3> Finaly report and print </h3>
+        <img width="1200"
+             src="https://res.cloudinary.com/djh7lsffd/image/upload/v1682526370/Product%20cost%20report/pbvuzagky4j0symcwf2c.png"/>
+    </div>
+
+
+
+    <div id="tab-4" class="tab-content">
+        <h3 style="height: 120px;text-align: center;"> Support</h3>
+        <p>Email: ttn.software@gmail.com</p>
+        <p>Discord: </p>
+        <p>Youtube: </p>
+    </div>
+</div>
+</body>
+
+
+<script>
+    $(document).ready(function () {
+        $('.tab-link').click(function () {
+            var tab_id = $(this).attr('data-tab');
+
+            $('.tab-link').removeClass('active');
+            $('.tab-content').hide();
+
+            $(this).addClass('active');
+            $('#' + tab_id).show();
+        });
+    });
+
+
+
+
+</script>
+</body>
+
+</html>
+
+

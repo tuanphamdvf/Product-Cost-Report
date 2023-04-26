@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="casound_bao_cao_xuat_nhap_kho_report_template">
+        <t t-call="web.basic_layout">
+            <style>
+                .table tr td,.table tr th{
+                border:solid 1px #000;
+                padding:0px;
+                padding-right: 3px;
+                padding-left: 3px;
+                }
+                body{ font-family: "Times New Roman", Times, serif; }
+
+            </style>
+            <div class="page" style="padding-bottom: 50px;margin-left: 20px;margin-right: 20px;">
+                <div style="position:relative;top:0;width:100%;">
+                    <div>
+                        <h4 style="text-transform: uppercase;text-align: center;font-weight: 600;margin-bottom: 15px; margin-top: 15px">
+                            BÁO CÁO NHẬP XUẤT TỒN KHO
+                        </h4>
+                    </div>
+                    <div>
+                        <div style="display:flex;">
+                            <b style="font-size: 16px;">Kho hàng:</b>
+                            <div style="font-size: 16px; margin-left: 4px;">
+                                <t t-esc="khohang"/>
+                            </div>
+                        </div>
+                        <div style="display:flex;">
+                            <b style="font-size: 16px;">Người tạo:</b>
+                            <div style="font-size: 16px; margin-left: 4px;">
+                                <t t-esc="name_user"/>
+                            </div>
+                        </div>
+                        <div style="display:flex;">
+                            <div style="display:flex;">
+                                <b style="font-size: 16px;">Từ ngày:</b>
+                                <div style="font-size: 16px; margin-left: 4px;">
+                                    <t t-esc="ngay_ton_start"/>
+                                </div>
+                            </div>
+                            <div style="display:flex;">
+                                <b style="font-size: 16px;margin-left: 20px;">Đến ngày:</b>
+                                <div style="font-size: 16px; margin-left: 4px;">
+                                    <t t-esc="ngay_ton_end"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <br/>
+                <table class="table">
+                    <thead>
+                        <tr style=" height: 20px;  background: #ccc;">
+                            <th class="text-center" rowspan="2" style="padding: 10px !important; vertical-align: inherit;font-size: 18px;" scope="col">
+                                STT
+                            </th>
+                            <th class="text-center" rowspan="2" style="padding: 10px !important; vertical-align: inherit;font-size: 18px;" scope="col">
+                                Mã
+                            </th>
+                            <th class="text-center" rowspan="2" style="padding: 10px !important; vertical-align: inherit;font-size: 18px;" scope="col">
+                                Tên
+                            </th>
+                            <th class="text-center" colspan="2" style="padding: 10px !important; vertical-align: inherit;font-size: 18px;" scope="col">
+                                Tồn đầu kỳ
+                            </th>
+                            <th class="text-center" colspan="2" style="padding: 10px !important; vertical-align: inherit;font-size: 18px;" scope="col">
+                                Phát sinh trong kỳ
+                            </th>
+                            <th class="text-center" colspan="2" style="padding: 10px !important; vertical-align: inherit;font-size: 18px;" scope="col">
+                                Tồn cuối kỳ
+                            </th>
+                        </tr>
+                        <tr style=" height: 20px;  background: #ccc;">
+                            <th class="text-center" style="padding: 10px !important; vertical-align: inherit;font-size: 18px;" scope="col">
+                                Số lượng
+                            </th>
+                            <th class="text-center" style="padding: 10px !important; vertical-align: inherit;font-size: 18px;" scope="col">
+                                Giá trị
+                            </th>
+                            <th class="text-center" style="padding: 10px !important; vertical-align: inherit;font-size: 18px;" scope="col">
+                                Số lượng
+                            </th>
+                            <th class="text-center" style="padding: 10px !important; vertical-align: inherit;font-size: 18px;" scope="col">
+                                Giá trị
+                            </th>
+                            <th class="text-center" style="padding: 10px !important; vertical-align: inherit;font-size: 18px;" scope="col">
+                                Số lượng
+                            </th>
+                            <th class="text-center" style="padding: 10px !important; vertical-align: inherit;font-size: 18px;" scope="col">
+                                Giá trị
+                            </th>
+
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        <t t-if="list_san_pham">
+                            <t t-foreach="list_san_pham" t-as="i">
+                                <tr style=" height: 20px;  background: #ccc;">
+                                    <td style="text-align:center;padding: 10px;font-weight: 600;">
+                                        <t t-esc="i_index +1"></t>
+                                    </td>
+                                    <td style="text-align:center;padding: 10px;font-weight: 600;">
+                                        <t t-esc="i['masp']"/>
+                                    </td>
+                                    <td style="text-align:center;padding: 10px;font-weight: 600;">
+                                        <t t-esc="i['name']"/>
+                                    </td>
+                                    <td style="text-align:center;padding: 10px;font-weight: 600;">
+                                        <t t-options='{"widget": "float", "precision": 0}' t-esc="i['tondau']"/>
+                                    </td>
+                                    <td style="text-align:center;padding: 10px;font-weight: 600;">
+                                        <t t-options='{"widget": "float", "precision": 0}' t-esc="i['giatridau']"/>
+đ
+                                    </td>
+                                    <td style="text-align:center;padding: 10px;font-weight: 600;">
+                                        <t t-options='{"widget": "float", "precision": 0}' t-esc="i['thaydoi']"/>
+                                    </td>
+                                    <td style="text-align:center;padding: 10px;font-weight: 600;">
+                                        <t t-options='{"widget": "float", "precision": 0}' t-esc="i['giatrithaydoi']"/>
+đ
+                                    </td>
+                                    <td style="text-align:center;padding: 10px;font-weight: 600;">
+                                        <t t-options='{"widget": "float", "precision": 0}' t-esc="i['toncuoi']"/>
+                                    </td>
+                                    <td style="text-align:center;padding: 10px;font-weight: 600;">
+                                        <t t-options='{"widget": "float", "precision": 0}' t-esc="i['giatricuoi']"/>
+đ
+                                    </td>
+
+                                </tr>
+
+
+                            </t>
+                            <tr style=" height: 20px;  background: #ccc;">
+
+                                <td colspan="3" style="text-align:center;padding: 10px;font-weight: 600;">
+                                    Tổng cộng
+                                </td>
+                                <td style="text-align:center;padding: 10px;font-weight: 600;">
+                                    <t t-options='{"widget": "float", "precision": 0}' t-esc="tongtondau"/>
+                                </td>
+                                <td style="text-align:center;padding: 10px;font-weight: 600;">
+                                    <t t-options='{"widget": "float", "precision": 0}' t-esc="tonggiatridau"/>
+đ
+                                </td>
+                                <td style="text-align:center;padding: 10px;font-weight: 600;">
+                                    <t t-options='{"widget": "float", "precision": 0}' t-esc="tongthaydoi"/>
+                                </td>
+                                <td style="text-align:center;padding: 10px;font-weight: 600;">
+                                    <t t-options='{"widget": "float", "precision": 0}' t-esc="tonggiatrithaydoi"/>
+đ
+                                </td>
+                                <td style="text-align:center;padding: 10px;font-weight: 600;">
+                                    <t t-options='{"widget": "float", "precision": 0}' t-esc="tongtoncuoi"/>
+                                </td>
+                                <td style="text-align:center;padding: 10px;font-weight: 600;">
+                                    <t t-options='{"widget": "float", "precision": 0}' t-esc="tonggiatricuoi"/>
+đ
+                                </td>
+
+                            </tr>
+                        </t>
+
+                        <t t-else="">
+                            <p>Không có thông tin</p>
+                        </t>
+                    </tbody>
+                </table>
+                <br/>
+
+            </div>
+        </t>
+    </template>
+</odoo>

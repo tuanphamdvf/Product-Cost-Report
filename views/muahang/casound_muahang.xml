@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="casound_muahang_inherit_view" model="ir.ui.view">
+            <field name="name">Buttom order</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="/form/sheet/notebook/page/field[@name='order_line']/tree/field[@name='price_unit']" position="after">
+                    <field name="gia_mua_hang" />
+
+                </xpath>
+<!--                <xpath expr="/form/sheet/group[1]" position="after">
+                    <field class="bg-danger" name="state_giamuahang" />
+
+                </xpath>-->
+            </field>
+        </record>
+    </data>
+
+</odoo>
