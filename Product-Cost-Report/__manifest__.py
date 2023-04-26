@@ -17,7 +17,7 @@
     'version': '15.1.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'stock', 'tree_view', 'product', 'purchase', 'mrp'],
+    'depends': ['base', 'stock', 'product', 'purchase', 'mrp'],
 
     # always loaded
     'data': [
