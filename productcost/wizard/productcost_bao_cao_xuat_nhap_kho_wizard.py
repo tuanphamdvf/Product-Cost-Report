@@ -7,7 +7,7 @@ import datetime
 
 
 class BaoCaoXuatNhapKho(models.TransientModel):
-    _name = "casound.bao_cao_xuat_nhap_kho.wizard"
+    _name = "productcost.bao_cao_xuat_nhap_kho.wizard"
     _description = "Báo cáo xuất nhập kho"
     ngay_ton_start = fields.Date(string="Bắt đầu từ ngày", required=True)
 
@@ -35,7 +35,8 @@ class BaoCaoXuatNhapKho(models.TransientModel):
             [('detailed_type', '=', product) and ('active', '=', True)])
         list_product_main = self.env['product.product'].search(
             [('active', '=', True) and ('detailed_type', '=', product)])
-        list_kho_hang_main = self.env['stock.location'].search([('active', '=', True)])
+        list_kho_hang_main = self.env['stock.location'].search(
+            [('active', '=', True)])
         # giá trị vốn
         # list_unit_cost = self.env['stock.valuation.layer'].search([])
         # today = date.today().strftime("%d/%m/%Y")
@@ -43,7 +44,7 @@ class BaoCaoXuatNhapKho(models.TransientModel):
         if todayDate.day > 25:
             todayDate += datetime.timedelta(7)
         data = {
-            'model': 'casound.bao_cao_xuat_nhap_kho.wizard',
+            'model': 'productcost.bao_cao_xuat_nhap_kho.wizard',
             'form_data': self.read()[0]
         }
         ngay_ton_start = data['form_data']['ngay_ton_start']
@@ -120,7 +121,8 @@ class BaoCaoXuatNhapKho(models.TransientModel):
                         tongthaydoi += (toncuoi - tondau)
                         tonggiatridau += tondau * i['standard_price']
                         tonggiatricuoi += toncuoi * i['standard_price']
-                        tonggiatrithaydoi += (toncuoi * i['standard_price']) - tondau * i['standard_price']
+                        tonggiatrithaydoi += (toncuoi *
+                                              i['standard_price']) - tondau * i['standard_price']
                     vals = {
                         'name': i.name,
                         'masp': i.default_code,
@@ -154,7 +156,7 @@ class BaoCaoXuatNhapKho(models.TransientModel):
         data['tonggiatrithaydoi'] = tonggiatrithaydoi
         data['khohang'] = diadiem['complete_name']
         print(data)
-        return self.env.ref("casound.action_bao_cao_xuat_nhap_kho_report").report_action(self, data=data)
+        return self.env.ref("productcost.action_bao_cao_xuat_nhap_kho_report").report_action(self, data=data)
 
         # list_id = []
         # if len(list_product) != 0:

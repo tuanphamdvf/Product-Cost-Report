@@ -2,7 +2,7 @@
 <odoo>
     <record id="bao_cao_xuat_nhap_kho_form_view" model="ir.ui.view">
         <field name="name">Báo cáo nhập xuất tồn kho</field>
-        <field name="model">casound.bao_cao_xuat_nhap_kho.wizard</field>
+        <field name="model">productcost.bao_cao_xuat_nhap_kho.wizard</field>
         <field name="arch" type="xml">
             <form string="Chọn khoảng thời gian muốn báo cáo">
                 <group>
@@ -13,13 +13,12 @@
                         <field name="ngay_ton_end"/>
                     </group>
                     <group>
-                        <field name="khohang"  />
+                        <field name="khohang" />
                     </group>
                 </group>
 
                 <footer>
-                    <button name="print_report" type="object" data-hotkey="shift+g" string="Xem báo cáo"
-                            class="oe_highlight"/>
+                    <button name="print_report" type="object" data-hotkey="shift+g" string="Xem báo cáo" class="oe_highlight"/>
                     <button string="Hủy" class="btn btn-secondary" special="cancel" icon="fa-times mr-2"/>
                 </footer>
             </form>
@@ -30,7 +29,7 @@
 
     <record id="bao_cao_xuat_nhap_kho_wizard_action" model="ir.actions.act_window">
         <field name="name">Báo cáo xuất nhập tồn kho</field>
-        <field name="res_model">casound.bao_cao_xuat_nhap_kho.wizard</field>
+        <field name="res_model">productcost.bao_cao_xuat_nhap_kho.wizard</field>
         <field name="view_mode">form</field>
         <field name="view_id" ref="bao_cao_xuat_nhap_kho_form_view"/>
         <field name="target">new</field>

@@ -5,7 +5,6 @@
 
 
         <!-- báo cáo trong module sản xuất-->
-        <menuitem id="casound_bao_cao_gia_thanh" name="Product Cost Report" parent="mrp.menu_mrp_reporting"
-                  action="bao_cao_gia_thanh_wizard_action" sequence="2"/>
+        <menuitem id="productcost_bao_cao_gia_thanh" name="Product Cost Report" parent="mrp.menu_mrp_reporting" action="bao_cao_gia_thanh_wizard_action" sequence="2"/>
     </data>
 </odoo>

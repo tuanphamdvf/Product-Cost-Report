@@ -23,13 +23,13 @@
     'data': [
         'security/ir.model.access.csv',
 
-        'reports/casound_bao_cao_xuat_nhap_kho_report_template.xml',
-        'reports/casound_bao_cao_gia_thanh_report_template.xml',
+        'reports/productcost_bao_cao_xuat_nhap_kho_report_template.xml',
+        'reports/productcost_bao_cao_gia_thanh_report_template.xml',
         'reports/report.xml',
-        'views/casound_product.xml',
+        'views/productcost_product.xml',
 
-        'wizard/casound_bao_cao_xuat_nhap_kho_wizard.xml',
-        'wizard/casound_bao_cao_gia_thanh_wizard.xml',
+        'wizard/productcost_bao_cao_xuat_nhap_kho_wizard.xml',
+        'wizard/productcost_bao_cao_gia_thanh_wizard.xml',
         'views/templates.xml',
     ],
     # only loaded in demonstration mode

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <template id="casound_bao_cao_xuat_nhap_kho_report_template">
+    <template id="productcost_bao_cao_xuat_nhap_kho_report_template">
         <t t-call="web.basic_layout">
             <style>
                 .table tr td,.table tr th{

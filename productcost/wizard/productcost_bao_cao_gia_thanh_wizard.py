@@ -16,7 +16,7 @@ def get_years_field():
 
 
 class BaoCaoGiaThanh(models.Model):
-    _name = "casound.bao_cao_gia_thanh.wizard"
+    _name = "productcost.bao_cao_gia_thanh.wizard"
     _description = "Product Cost Report"
     thang = fields.Selection(
         [('01', 'Tháng 1'), ('02', 'Tháng 2'), ('03', 'Tháng 3'),
@@ -39,7 +39,7 @@ class BaoCaoGiaThanh(models.Model):
 
     def print_report(self):
         data = {
-            'model': 'casound.bao_cao_gia_thanh.wizard',
+            'model': 'productcost.bao_cao_gia_thanh.wizard',
             'form_data': self.read()[0]
         }
         thang = int(data['form_data']['thang'])
@@ -117,16 +117,16 @@ class BaoCaoGiaThanh(models.Model):
                     for tilebom in listbom:
                         print('m', type(tilebom['product_id']['categ_id'].id))
                         tongbom += tilebom['product_id']['standard_price'] * \
-                                   tilebom['product_qty']
+                            tilebom['product_qty']
                         if tilebom['product_id']['is_main_material'] == True:
                             print("co bom chinh")
                             bomchinh += tilebom['product_id']['standard_price'] * \
-                                        tilebom['product_qty']
+                                tilebom['product_qty']
 
                         if tilebom['product_id']['is_main_material'] == False:
                             print("co bom phu")
                             bomphu += tilebom['product_id']['standard_price'] * \
-                                      tilebom['product_qty']
+                                tilebom['product_qty']
                 if tongbom > 0:
                     tylebom = tongbom / i['standard_price']
                     tilenvlchinh = bomchinh / tongbom * tylebom
@@ -154,7 +154,7 @@ class BaoCaoGiaThanh(models.Model):
 
                             for m in phanbo['mrp_production_ids']:
                                 tong_chi_phi_lsx += m['product_qty'] * \
-                                                    m['product_id']['standard_price']  # 2
+                                    m['product_id']['standard_price']  # 2
                                 if m['product_id']['id'] == i.id:
                                     tong_chi_phi_lsx_chua_san_pham += m['product_qty'] * m['product_id'][
                                         'standard_price']  # 1
@@ -171,7 +171,7 @@ class BaoCaoGiaThanh(models.Model):
                                         list_product.append(gr)
                                 if tong_chi_phi_lsx != 0:
                                     chiphithat = (
-                                                         tong_chi_phi_lsx_chua_san_pham / tong_chi_phi_lsx) * chi_phi_tam
+                                        tong_chi_phi_lsx_chua_san_pham / tong_chi_phi_lsx) * chi_phi_tam
                                     data = {
                                         'cost': chiphithat,
                                         'name': cl['complete_name'],
@@ -189,7 +189,7 @@ class BaoCaoGiaThanh(models.Model):
                         print(sanxuat)
                         #     listbomlsx = sanxuat['product_id']
                         giatrilenhsx += sanxuat['product_qty'] * \
-                                        sanxuat['product_id']['standard_price']
+                            sanxuat['product_id']['standard_price']
                         if sanxuat['date_planned_start'].date() < first_day and (
                                 sanxuat['state'] in ['confirmed', 'planned', 'progress']):
                             tondodang += sanxuat['product_qty']
@@ -200,7 +200,7 @@ class BaoCaoGiaThanh(models.Model):
                 giatrungbinh = 0
                 if soluongnhap != 0:
                     giatrungbinh = ((tongbom * (
-                            soluongnhap + tondodang - tondodangcuoi)) + chiphichungfinal + chiphinhancongfinal) / soluongnhap
+                        soluongnhap + tondodang - tondodangcuoi)) + chiphichungfinal + chiphinhancongfinal) / soluongnhap
 
                 value = {
                     "name": i['name'],
@@ -215,7 +215,7 @@ class BaoCaoGiaThanh(models.Model):
                     'listchiphi': list_chi_chi,
 
                     'tongcong': giatrungbinh * (
-                            soluongnhap + tondodangcuoi),
+                        soluongnhap + tondodangcuoi),
 
                 }
                 list_thanh_pham_models.append(value)
@@ -257,4 +257,4 @@ class BaoCaoGiaThanh(models.Model):
             data['leng'] = len(list_chi_chi) + 3
             data['display_sub'] = display_sub
             print(data)
-        return self.env.ref("casound.action_bao_cao_gia_thanh_report").report_action(self, data=data)
+        return self.env.ref("productcost.action_bao_cao_gia_thanh_report").report_action(self, data=data)
