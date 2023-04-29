@@ -2,7 +2,7 @@
 <odoo>
     <record id="bao_cao_gia_thanh_form_view" model="ir.ui.view">
         <field name="name">Product</field>
-        <field name="model">casound.bao_cao_gia_thanh.wizard</field>
+        <field name="model">productcost.bao_cao_gia_thanh.wizard</field>
         <field name="arch" type="xml">
             <form string="Range Time">
                 <group>
@@ -24,7 +24,7 @@
 
     <record id="bao_cao_gia_thanh_wizard_action" model="ir.actions.act_window">
         <field name="name">Product Cost Report</field>
-        <field name="res_model">casound.bao_cao_gia_thanh.wizard</field>
+        <field name="res_model">productcost.bao_cao_gia_thanh.wizard</field>
         <field name="view_mode">form</field>
         <field name="view_id" ref="bao_cao_gia_thanh_form_view"/>
         <field name="target">new</field>
